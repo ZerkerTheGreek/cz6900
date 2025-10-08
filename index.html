@@ -1,11 +1,320 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>CZ6900 — Coming Soon</title>
-  </head>
-  <body style="font-family:sans-serif;text-align:center;margin-top:100px;background:#0f1724;color:white;">
-    <h1>🚀 CZ6900</h1>
-    <p>The cult coin inspired by CZ. Coming soon...</p>
-  </body>
-</html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CZ6900 — The Coin of Legends</title>
+  <meta name="description" content="CZ6900 — a cult coin inspired by CZ. Join the movement. Diamond hands only." />
+  <meta property="og:title" content="CZ6900 — The Coin of Legends" />
+  <meta property="og:description" content="CZ6900 — a cult coin inspired by CZ. Join the movement. Diamond hands only." />
+  <meta name="theme-color" content="#0f1724" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa7bf;
+      --accent:#ff6b6b;
+      --accent-2:#6b8bff;
+      --glass: rgba(255,255,255,0.03);
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background:linear-gradient(180deg,var(--bg),#071024 80%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding-bottom:64px;
+    }
+    header{
+      position:sticky; top:0; z-index:60;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(7,12,24,0.6), rgba(7,12,24,0.3));
+      border-bottom:1px solid rgba(255,255,255,0.03);
+    }
+    .container{max-width:1100px;margin:0 auto;padding:20px;}
+    .nav{
+      display:flex;gap:12px;align-items:center;justify-content:space-between;
+    }
+    .brand{display:flex;gap:12px;align-items:center;font-weight:700}
+    .logo{
+      width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;font-weight:800;color:#061024;
+      box-shadow:0 6px 20px rgba(11,18,30,0.6);
+    }
+    nav a{color:var(--muted);text-decoration:none;padding:10px;border-radius:8px}
+    nav a:hover{color:#fff;background:rgba(255,255,255,0.03)}
+    .cta{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:8px 14px;border-radius:10px;color:#071024;font-weight:700;text-decoration:none;
+      box-shadow:0 6px 20px rgba(107,139,255,0.08);
+      display:inline-flex;align-items:center;gap:8px;
+    }
+
+    main{padding:40px 20px}
+    .hero{
+      display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center;margin-bottom:36px;
+    }
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:34px;border-radius:16px;border:1px solid rgba(255,255,255,0.03);
+      box-shadow:0 10px 40px rgba(2,6,23,0.6);
+    }
+    h1{font-size:32px;margin:0 0 10px}
+    .lead{color:var(--muted);margin:0 0 18px}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+    .tag{background:var(--glass);padding:6px 10px;border-radius:999px;color:var(--muted);font-weight:600;font-size:13px}
+    .actions{display:flex;gap:12px;align-items:center}
+    .btn{
+      padding:10px 14px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.03);color:#fff;text-decoration:none;font-weight:700;
+    }
+    .card-stats{display:flex;gap:12px;margin-top:14px}
+    .stat{background:rgba(255,255,255,0.02);padding:10px;border-radius:10px;flex:1;text-align:center}
+    .muted{color:var(--muted);font-size:13px}
+
+    /* right panel */
+    .right-panel{position:relative}
+    .token-card{background:linear-gradient(180deg,#071124, #041022); padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04)}
+    .token-price{font-size:20px;font-weight:800}
+    .small{font-size:13px;color:var(--muted)}
+
+    /* sections */
+    section{margin:30px 0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .panel{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:8px;text-align:left;border-bottom:1px dashed rgba(255,255,255,0.02);font-size:14px}
+    .roadmap-step{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+    .dot{width:12px;height:12px;border-radius:50%;background:linear-gradient(90deg,var(--accent),var(--accent-2));margin-top:6px}
+
+    footer{margin-top:40px;padding:28px 20px;background:transparent;border-top:1px solid rgba(255,255,255,0.02)}
+    .footer-grid{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr; }
+      .grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:610px){
+      nav a{display:none}
+      .grid{grid-template-columns:1fr}
+    }
+
+    /* small utilities */
+    .muted-2{color:rgba(255,255,255,0.6);font-size:13px}
+    input[type="email"]{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    .subscribe-row{display:flex;gap:8px}
+    .subscribe-row button{padding:10px 12px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));border:none;color:#071024;font-weight:700}
+    .disclaimer{font-size:12px;color:var(--muted);margin-top:10px}
+    .tiny{font-size:12px;color:var(--muted)}
+    a.social{color:var(--muted);text-decoration:none;margin-right:8px}
+    .muted-centered{color:var(--muted);text-align:center;margin-top:22px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav" >
+      <div class="brand">
+        <div class="logo">CZ<span style="font-size:12px">6900</span></div>
+        <div>
+          <div style="font-size:14px">CZ6900</div>
+          <div class="tiny">The Coin of Legends</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#community">Community</a>
+        <a class="cta" href="#join">Join</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <h1>$CZ6900 — The Coin of Legends</h1>
+        <p class="lead">Inspired by CZ. Built by believers. Cult energy, diamond hands, and a community-first ethos. Not financial advice — do your own research.</p>
+
+        <div class="tags">
+          <div class="tag">⛓️ ERC-20</div>
+          <div class="tag">🔥 Cult vibes</div>
+          <div class="tag">💎 Diamond Hands</div>
+          <div class="tag">🌐 Community</div>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="#tokenomics">Tokenomics</a>
+          <a class="btn" href="#roadmap">Roadmap</a>
+          <a class="cta" id="connectBtn" href="#join">Join the cult</a>
+        </div>
+
+        <div class="card-stats" style="margin-top:18px">
+          <div class="stat">
+            <div class="small">Market</div>
+            <div style="font-weight:800">Cult-only</div>
+          </div>
+          <div class="stat">
+            <div class="small">Supply</div>
+            <div style="font-weight:800">6,900,000,000</div>
+          </div>
+          <div class="stat">
+            <div class="small">Launch</div>
+            <div style="font-weight:800">Q4 2025 (est.)</div>
+          </div>
+        </div>
+
+        <p class="disclaimer">Not affiliated with Changpeng Zhao / Binance. This project is fan-inspired and for entertainment/community purposes only.</p>
+      </div>
+
+      <aside class="right-panel">
+        <div class="token-card">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div class="small">Token</div>
+              <div class="token-price">$CZ6900</div>
+            </div>
+            <div style="text-align:right">
+              <div class="small">Social</div>
+              <div style="margin-top:6px">
+                <a class="social" href="#" title="Twitter">@CZ6900</a>
+                <a class="social" href="#" title="Telegram">TG</a>
+              </div>
+            </div>
+          </div>
+
+          <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:12px 0">
+
+          <div style="display:flex;gap:8px">
+            <div style="flex:1">
+              <div class="small">Contract</div>
+              <div style="font-family:monospace;font-size:13px;margin-top:6px">0x000...000 (placeholder)</div>
+            </div>
+            <div style="width:120px">
+              <div class="small">Price</div>
+              <div style="font-weight:700;margin-top:6px">—</div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px;display:flex;gap:8px">
+            <button class="btn" onclick="copyContract()">Copy Contract</button>
+            <a class="btn" href="#" onclick="alert('This is a demo; integrate a real swap link')">Buy (Demo)</a>
+          </div>
+        </div>
+
+        <div style="height:16px"></div>
+
+        <div class="panel" style="padding:12px">
+          <div class="small">Subscribe for drops & alpha</div>
+          <div style="height:8px"></div>
+          <div>
+            <form id="subscribeForm" onsubmit="return subscribe(event)">
+              <div class="subscribe-row">
+                <input id="email" type="email" placeholder="your@address.com" required />
+                <button type="submit">Subscribe</button>
+              </div>
+              <div id="subscribeMsg" class="tiny muted" style="margin-top:8px"></div>
+            </form>
+          </div>
+        </div>
+
+      </aside>
+    </section>
+
+    <section id="about">
+      <div class="panel">
+        <h3 style="margin-top:0">About CZ6900</h3>
+        <p class="muted">CZ6900 is a community-first, meme-infused token inspired by the energy around CZ (Changpeng Zhao). Designed to be fun, viral, and community-driven. We aim to build a strong, decentralized community with regular community events, merch drops, and charity initiatives.</p>
+        <ul style="margin-top:12px;color:var(--muted)">
+          <li>Clear token contract and immutable supply</li>
+          <li>Community governance via snapshots (future)</li>
+          <li>Marketing & charity wallet with community oversight</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="tokenomics">
+      <h3>Tokenomics</h3>
+      <div class="grid" style="margin-top:12px">
+        <div class="panel">
+          <h4>Distribution</h4>
+          <table>
+            <tbody>
+              <tr><td>Community Liquidity</td><td>40%</td></tr>
+              <tr><td>Staking / Rewards</td><td>25%</td></tr>
+              <tr><td>Team (vested)</td><td>10%</td></tr>
+              <tr><td>Marketing & Charity</td><td>15%</td></tr>
+              <tr><td>Reserve</td><td>10%</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="panel">
+          <h4>Fees</h4>
+          <table>
+            <tbody>
+              <tr><td>Buy / Sell Fee</td><td>2% (marketing) + 1% (liquidity)</td></tr>
+              <tr><td>Max Wallet</td><td>2% of supply</td></tr>
+              <tr><td>Anti-bot</td><td>Initial protection on launch</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="panel">
+          <h4>Security</h4>
+          <p class="muted">We plan to audit the contract and publish results. Always verify contract addresses and use trusted sources before interacting.</p>
+          <div style="height:8px"></div>
+          <div class="muted-2"><strong>Disclaimer:</strong> This is not financial advice.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap">
+      <h3>Roadmap</h3>
+      <div class="panel">
+        <div class="roadmap-step">
+          <div class="dot"></div>
+          <div>
+            <strong>Phase 0</strong>
+            <div class="tiny muted">Community building, token creation, initial liquidity</div>
+          </div>
+        </div>
+        <div class="roadmap-step">
+          <div class="dot"></div>
+          <div>
+            <strong>Phase 1</strong>
+            <div class="tiny muted">Listings, partnerships, merch drops</div>
+          </div>
+        </div>
+        <div class="roadmap-step">
+          <div class="dot"></div>
+          <div>
+            <strong>Phase 2</strong>
+            <div class="tiny muted">Governance snapshot, staking MVP</div>
+          </div>
+        </div>
+        <div class="roadmap-step">
+          <div class="dot"></div>
+          <div>
+            <strong>Phase 3</strong>
+            <div class="tiny muted">Charity events, community grants, long-term liquidity</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="community">
+      <h3>Community & Socials</h3>
+      <div class="panel">
+        <p class="muted">Join the cult. Share memes, run AMAs, help decide the roadmap.</p>
+        <p style="margin-top:10px">
+          <a class="social" href="#" target="_blank" rel="nofollow noopener">🐦 Twitter</a>
+          <a class="social" href="#" target="_blank" rel="nofollow noopener">💬 Telegram</a>
+          <a class="social" href="#" target="_blank" rel="nofollow noopener">🔗 Discord</a>
+        </p>
+        <
